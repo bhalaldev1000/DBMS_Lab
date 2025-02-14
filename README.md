@@ -78,7 +78,7 @@ desc employees;
 ```
 ALTER TABLE EMPLOYEES MODIFY MobNo varchar(10) unique;
 ```
-Now Check Description of the database
+Now Check Description of the database datatype of MobNo was changed from int to varchar(10)
 ```
 desc employees;
 ```
@@ -94,5 +94,73 @@ desc employees;
 | MobNo       | varchar(10)  | YES  | UNI | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
 5 rows in set (0.00 sec)
+```
+## Q4) Write a SQL Query to remove a column from an existing table?
+### Sol:
+```
+ALTER TABLE EMPLOYEES DROP COLUMN MobNo;
+```
+Now Check Description of the database
+```
+desc employees;
+```
+### Output:
+```
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| EMP_ID      | int          | NO   | PRI | NULL    | auto_increment |
+| Name        | varchar(100) | YES  |     | NULL    |                |
+| Department  | varchar(50)  | YES  |     | NULL    |                |
+| Designation | varchar(100) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+```
+## Q5) Write a SQL Query to add a unique constrain to a column in existing table?
+### Sol:
+```
+ALTER TABLE EMPLOYEES ADD MobNo int;
+ALTER TABLE EMPLOYEES MODIFY COLUMN MobNo int unique;
+```
+Now Check Description of the database
+```
+desc employees;
+```
+### Output:
+```
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| EMP_ID      | int          | NO   | PRI | NULL    | auto_increment |
+| Name        | varchar(100) | YES  |     | NULL    |                |
+| Department  | varchar(50)  | YES  |     | NULL    |                |
+| Designation | varchar(100) | YES  |     | NULL    |                |
+| MobNo       | int          | YES  | UNI | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+```
+## Q6) Write a SQL Query to create a foreign key relationship between two tables?
+### Sol:
+```
+ALTER TABLE EMPLOYEES ADD FACULTY_ID;
+ALTER TABLE EMPLOYEES ADD CONSTRAINT fk FOREIGN KEY (FACULTY_ID) REFERENCES FACULTY(FACULTY_ID);
+```
+Now Check Description of the database
+```
+desc employees;
+```
+### Output:
+```
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| EMP_ID      | int          | NO   | PRI | NULL    | auto_increment |
+| Name        | varchar(100) | YES  |     | NULL    |                |
+| Department  | varchar(50)  | YES  |     | NULL    |                |
+| Designation | varchar(100) | YES  |     | NULL    |                |
+| MobNo       | int          | YES  | UNI | NULL    |                |
+| FACULTY_ID  | int          | YES  | MUL | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
 ```
 
