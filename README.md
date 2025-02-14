@@ -151,8 +151,7 @@ desc employees;
 ```
 ### Output:
 ```
-mysql> desc faculty
-    -> ;
+mysql> desc faculty;
 +-------------+--------------+------+-----+---------+----------------+
 | Field       | Type         | Null | Key | Default | Extra          |
 +-------------+--------------+------+-----+---------+----------------+
