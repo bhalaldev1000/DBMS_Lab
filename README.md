@@ -176,4 +176,40 @@ mysql> desc employees;
 +-------------+--------------+------+-----+---------+----------------+
 6 rows in set (0.00 sec)
 ```
+## Q7) Write a SQL Query to permanently delete a ?
+### Sol:
+```
+ALTER TABLE EMPLOYEES ADD FACULTY_ID;
+ALTER TABLE EMPLOYEES ADD CONSTRAINT fk FOREIGN KEY (FACULTY_ID) REFERENCES FACULTY(FACULTY_ID);
+```
+Now Check Description of the database
+```
+desc employees;
+```
+### Output:
+```
+mysql> desc faculty;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| FACULTY_ID  | int          | NO   | PRI | NULL    | auto_increment |
+| Name        | varchar(100) | YES  |     | NULL    |                |
+| Department  | varchar(50)  | YES  |     | NULL    |                |
+| Designation | varchar(100) | YES  |     | NULL    |                |
+| MobNo       | int          | YES  | UNI | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
 
+mysql> desc employees;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| EMP_ID      | int          | NO   | PRI | NULL    | auto_increment |
+| Name        | varchar(100) | YES  |     | NULL    |                |
+| Department  | varchar(50)  | YES  |     | NULL    |                |
+| Designation | varchar(100) | YES  |     | NULL    |                |
+| MobNo       | int          | YES  | UNI | NULL    |                |
+| FACULTY_ID  | int          | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+```
