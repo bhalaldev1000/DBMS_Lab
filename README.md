@@ -46,15 +46,10 @@ Department varchar(50),
 Designation varchar(100)
 );
 ```
-## Q2) Write a SQL Query to create a table with specific columns and constraints?
+## Q2) Write a SQL Query to add a new column to an existing table?
 ### Sol:
 ```
-CREATE TABLE EMPLOYEES(
-EMP_ID int primary key auto_increment ,
-Name varchar(100),
-Department varchar(50),
-Designation varchar(100)
-);
+ALTER TABLE EMPLOYEES ADD Mob.No. int unique;
 CREATE TABLE STUDENTS(
 STUDENT_ID int primary key auto_increment ,
 Name varchar(100),
